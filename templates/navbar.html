@@ -1,0 +1,42 @@
+<nav class="navbar fixed-top p-3  navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand">Life Pharma</span>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('search_page') }}">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('search_page_bt') }}">Searched</a>
+        </li>
+      </ul>
+    </div>
+
+    {% if logged_in %}
+
+       <div class="dropdown-container">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; text-decoration:underline; padding:5">{{name}}</a>
+         <ul class="dropdown-menu dropdown-menu-end">
+           <li><button class="dropdown-item" type="button"><i class="far fa-user" style="padding: 5px"></i>Profile</button></li>
+           <li><hr class="dropdown-divider"></li>
+           <li><button class="dropdown-item" type="button"><i class="fas fa-sign-out-alt" style="padding: 5px"></i>Sign Out</button></li>
+         </ul>
+       </div>
+
+    {% else: %}
+
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+
+    {% endif %}
+
+  </div>
+</nav>
