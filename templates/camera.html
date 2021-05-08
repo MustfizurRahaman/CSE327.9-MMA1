@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block css%}
+    <link href="{{ url_for( 'static', filename='css/camera.css' ) }}" rel="stylesheet">
+{% endblock css%}
+
+{%block content%}
+
+    <video id="camera" autoplay></video>
+    <button class="btn btn-primary btn-lg col-4" id="snap" onclick="sendImagefromCanvas()"><i class="fas fa-camera fa-2x"></i></button>
+    <form method="post">
+        <button class="btn btn-primary btn-lg col-2" id="predict" ><i class="fas fa-capsules"></i>  Predict</button>
+    </form>
+
+
+
+
+    <script>
+
+        let photo = document.getElementById("camera");
+
+        //create a canvas to grab an image for upload
+
+        let imageCanvas = document.createElement('canvas');
+        let imageCtx = imageCanvas.getContext("2d");
+
+        //Add file blob to a form and post
+        function postFile(file) {
+            let formdata = new FormData();
+            formdata.append("image", file);
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', "{{ url_for('image') }}", true);
+            xhr.onload = function () {
+                if (this.status === 200)
+                    console.log(this.response);
+                else
+                    console.error(xhr);
+            };
+            xhr.send(formdata);
+        }
+
+        //Get the image from the canvas
+        function sendImagefromCanvas() {
+
+            //Make sure the canvas is set to the current video size
+            imageCanvas.width = photo.videoWidth;
+            imageCanvas.height = photo.videoHeight;
+
+            imageCtx.drawImage(photo, 0, 0, photo.videoWidth, photo.videoHeight);
+
+            //Convert the canvas to blob and post the file
+            imageCanvas.toBlob(postFile, 'static/img/jpeg');
+        }
+
+        //Take a picture on click
+    //    camera.onclick = function() {
+    //        console.log('click');
+    //        sendImagefromCanvas();
+    //     };
+
+        window.onload = function () {
+
+            //Get camera video
+            navigator.mediaDevices.getUserMedia({video: {width: 852, height: 480}, audio: false})
+                .then(stream => {
+                    photo.srcObject = stream;
+                })
+                .catch(err => {
+                    console.log('navigator.getUserMedia error: ', err)
+                });
+
+        };
+
+    </script>
+
+{%endblock content%}
+
