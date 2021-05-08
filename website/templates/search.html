@@ -81,7 +81,7 @@
 <script>
     $(function() {
         $.ajax({
-            url: '{{ url_for("autocomplete") }}'
+            url: '{{ url_for("views.autocomplete") }}'
             }).done(function (data){
                 $('#search_auto').autocomplete({
                     source: data,

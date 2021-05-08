@@ -130,7 +130,5 @@ dmypy.json
 
 # Pycharm
 .idea
-templates/test.html
-config.cfg
 database.db
 
