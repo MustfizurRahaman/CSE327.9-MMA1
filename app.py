@@ -16,6 +16,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+#creating table(user) in database
 class User(UserMixin, db.Model):
     def get_id(self):
         return (self.userId)
