@@ -23,10 +23,10 @@ def create_app():
     app = Flask(__name__)
 
     # Secret Key!
-    app.config['SECRET_KEY'] = environ.get('SECRET_KEY')
+    app.config['SECRET_KEY'] = "Life Pharma"
 
     # URI of database
-    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URI')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
     db.init_app(app)
 
