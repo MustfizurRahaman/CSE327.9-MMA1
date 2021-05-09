@@ -16,9 +16,9 @@ def predict(img_path):
     """
         This method is used to predict the Text consists in a Image.
 
-        :param request: It's a path of the image from where have to predict.
+        :param img_path: It's a path of the image from where have to predict.
 
-        :type request: String.
+        :type img_path: String.
 
         :return: String. Predicted String
 
@@ -37,9 +37,9 @@ def dump(text):
     """
         This method is used to dump  the last predicted Text to a pickle file.
 
-        :param request: Its a text string.
+        :param text: Its a text string.
 
-        :type request: String.
+        :type text: String.
 
         :return: It will return nothing.
 
@@ -59,9 +59,9 @@ def op():
         This method is used to open the pickle file named last_search.pkl. Load file to a list and return it
         for further searching processing.
 
-        :param request: None.
+        :param Null: None.
 
-        :type request: Noen.
+        :type Null: None.
 
         :return: It will return  a list file.
 
@@ -90,7 +90,7 @@ def upload(file=None):
         This method saved the image in a folder and send the location to predict function.After getting text return from
         predict function, it wll show the test buy returning at html page.
 
-        :param request: it's a HttpResponse from user..
+        :param file: it's a HttpResponse from user..
 
         :type request: HttpResponse.
 
