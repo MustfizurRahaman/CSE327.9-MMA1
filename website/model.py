@@ -31,7 +31,7 @@ def get_login_details():
 def checkout():
     
     if 'email' not in session:
-        return redirect(url_for('login_form'))
+        return redirect(url_for('login'))
     logged_in, name, no_of_items = get_login_details()
     email = session['email']
     #model
@@ -51,7 +51,7 @@ def checkout():
 @app.route("/add_to_cart")
 def add_to_cart():
     if 'email' not in session:
-        return redirect(url_for('login_form'))
+        return redirect(url_for('login'))
     else:
         product_id = request.args.get('product_id')
         logged_in, name, no_of_items = get_login_details()
@@ -76,7 +76,7 @@ def add_to_cart():
 @app.route("/remove_from_cart")
 def remove_from_cart():
     if 'email' not in session:
-        return redirect(url_for('login_form'))
+        return redirect(url_for('login'))
     email = session['email']
     #model
     product_id = request.args.get('product_id')
