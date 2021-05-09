@@ -1,22 +1,15 @@
-import json
 import os
-from flask import Blueprint, render_template, request, Response
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import DataRequired
+import json
+from .forms import SearchForm
 from .models import Medicine
-
+from flask import Blueprint, render_template, request, Response
 views = Blueprint('views', __name__)
 
 
-# searchField in search page
-class SearchForm(FlaskForm):
-    search_input = StringField("Search", validators=[DataRequired()], id="search_auto")
-
-
 # autocomplete/ show suggestion in the search box while typing
-@views.route('/_autocomplete', methods=['GET'])
-def autocomplete():
+@views.route('/_autocomplete_search', methods=['GET'])
+def autocomplete_search():
+
     items = []
 
     all_item = Medicine.query.order_by(Medicine.name)
@@ -30,6 +23,7 @@ def autocomplete():
 # search page
 @views.route('/search.html', methods=['GET', 'POST'])
 def search_page(sent_item=None):
+
     form = SearchForm(request.form)
 
     if sent_item:
@@ -37,7 +31,7 @@ def search_page(sent_item=None):
     else:
         searched_item = None
 
-    if form.validate_on_submit():
+    if request.method == "POST":
         searched_item = form.search_input.data
         form.search_input.data = ''
 
@@ -52,21 +46,22 @@ def search_page(sent_item=None):
 
 @views.route('/camera.html', methods=['GET', 'POST'])
 def camera_page():
+
     if request.method == "POST":
 
         if os.path.exists("website/static/img/temp.jpg"):
-            #upload()
+            # upload()
             pass
         else:
             return render_template("error_404.html")
 
-    # return Response(open('test.html').read(), mimetype="text/html")
     return render_template('camera.html')
 
 
 # save the image as a picture
 @views.route('/_camera_image', methods=['POST'])
-def image():
+def image_from_camera():
+
     image_file = request.files['image']  # get the image
     image_file.save('%s/%s' % ('website/static/img', 'temp.jpg'))
 

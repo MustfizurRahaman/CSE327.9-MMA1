@@ -30,7 +30,7 @@
             let formdata = new FormData();
             formdata.append("image", file);
             let xhr = new XMLHttpRequest();
-            xhr.open('POST', "{{ url_for('views.image') }}", true);
+            xhr.open('POST', "{{ url_for('views.image_from_camera') }}", true);
             xhr.onload = function () {
                 if (this.status === 200)
                     console.log(this.response);
