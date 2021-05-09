@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>source package &mdash; Life Pharma 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Life Pharma 1.0 documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="source-package">
+<h1>source package<a class="headerlink" href="#source-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-source.forms">
+<span id="source-forms-module"></span><h2>source.forms module<a class="headerlink" href="#module-source.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="source.forms.SearchForm">
+<em class="property">class </em><code class="descclassname">source.forms.</code><code class="descname">SearchForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object at 0x000001CBB06493E0&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#source.forms.SearchForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">flask_wtf.form.FlaskForm</span></code></p>
+<p>This class holds the search bar text field, where the input is entered</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>NULL</strong> (<a class="reference external" href="https://docs.python.org/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) &#8211; None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/library/constants.html#None" title="(in Python v3.9)">None</a></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="source.forms.SearchForm.search_input">
+<code class="descname">search_input</code><em class="property"> = &lt;UnboundField(StringField, ('Search',), {'validators': [&lt;wtforms.validators.DataRequired object at 0x000001CBAFC3BEE0&gt;], 'id': 'search_auto'})&gt;</em><a class="headerlink" href="#source.forms.SearchForm.search_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-source.models">
+<span id="source-models-module"></span><h2>source.models module<a class="headerlink" href="#module-source.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="source.models.Medicine">
+<em class="property">class </em><code class="descclassname">source.models.</code><code class="descname">Medicine</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#source.models.Medicine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">sqlalchemy.orm.decl_api.Model</span></code></p>
+<p>This class is extended from the attribute db so it has all the functionality
+of the SQLAlchemy.
+This class used to create objects for database entry
+And to retrieve data from database</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>NULL</strong> (<a class="reference external" href="https://docs.python.org/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) &#8211; None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None.</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="source.models.Medicine.company_name">
+<code class="descname">company_name</code><a class="headerlink" href="#source.models.Medicine.company_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="source.models.Medicine.description">
+<code class="descname">description</code><a class="headerlink" href="#source.models.Medicine.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="source.models.Medicine.image">
+<code class="descname">image</code><a class="headerlink" href="#source.models.Medicine.image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="source.models.Medicine.name">
+<code class="descname">name</code><a class="headerlink" href="#source.models.Medicine.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="source.models.Medicine.price">
+<code class="descname">price</code><a class="headerlink" href="#source.models.Medicine.price" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="source.models.Medicine.product_id">
+<code class="descname">product_id</code><a class="headerlink" href="#source.models.Medicine.product_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="source.models.Medicine.quantity">
+<code class="descname">quantity</code><a class="headerlink" href="#source.models.Medicine.quantity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="source.models.Medicine.side_effects">
+<code class="descname">side_effects</code><a class="headerlink" href="#source.models.Medicine.side_effects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-source.views">
+<span id="source-views-module"></span><h2>source.views module<a class="headerlink" href="#module-source.views" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="source.views.autocomplete_search">
+<code class="descclassname">source.views.</code><code class="descname">autocomplete_search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.views.autocomplete_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to suggest users the product name depending on the input.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Null</strong> (<em>None.</em>) &#8211; None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">products which start with the characters typed by user.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">json.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.views.camera_page">
+<code class="descclassname">source.views.</code><code class="descname">camera_page</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.views.camera_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to capture image, and after that send it to get predicted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Null</strong> (<em>None.</em>) &#8211; None.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">image capture view.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">html.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.views.image_from_camera">
+<code class="descclassname">source.views.</code><code class="descname">image_from_camera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.views.image_from_camera" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to save the image that is taken in the camera page</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>NULL</strong> (<a class="reference external" href="https://docs.python.org/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) &#8211; None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">returns response as saved</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Response.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.views.search_page">
+<code class="descclassname">source.views.</code><code class="descname">search_page</code><span class="sig-paren">(</span><em>sent_item=None</em><span class="sig-paren">)</span><a class="headerlink" href="#source.views.search_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method allows the user to search, and according to the input, the
+the page would show if deatils of the product if it exists in database,
+otherwise will show item not found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sent_item</strong> (<em>String.</em>) &#8211; Its a text string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">search option view.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">html.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-source">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-source" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="source.create_app">
+<code class="descclassname">source.</code><code class="descname">create_app</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.create_app" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the flask app after configuring it with secret key and database
+registers views via blueprint
+handles any missing or non existing route by displaying a custom error page</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>NULL</strong> (<a class="reference external" href="https://docs.python.org/library/constants.html#None" title="(in Python v3.9)"><em>None</em></a>) &#8211; None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/library/constants.html#None" title="(in Python v3.9)">None</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">source package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-source.forms">source.forms module</a></li>
+<li><a class="reference internal" href="#module-source.models">source.models module</a></li>
+<li><a class="reference internal" href="#module-source.views">source.views module</a></li>
+<li><a class="reference internal" href="#module-source">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rst/source.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Asif Arman Rahman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/source.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

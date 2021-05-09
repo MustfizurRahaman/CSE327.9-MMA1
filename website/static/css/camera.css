@@ -1,0 +1,33 @@
+video, canvas {
+transform: scale(-1, 1); /*For Firefox (& IE) */
+-webkit-transform: scale(-1, 1); /*for Chrome & Opera (& Safari) */
+}
+
+body {
+    background: #3dedff;
+}
+
+#snap {
+    margin: 0px 0px 0px 515px;
+    color: #3dedff;
+    background: #353b48;
+    border:0;
+}
+
+#snap:focus {
+    outline:none;
+}
+
+#predict {
+    margin: 2px 0px 0px 640px;
+    color: #3dedff;
+    background: #353b48;
+    border:0;
+}
+
+#camera {
+    width: 852;
+    height: 480;
+    border: 0.5px solid black;
+    margin: 110px 0px 0px 340px;
+}
