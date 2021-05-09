@@ -77,6 +77,17 @@ def op():
 # Refer to search page
 @views.route('/_search')
 def sarch_page():
+    """
+        This method is used to get the search page. In here, last search text will be retrive and pass to search. 
+
+        :param Null: None.
+
+        :type request: None.
+
+        :return: this method returns a search html page.
+
+        :rtype: HttpResponse.
+    """
     list = op()
     last_serch = list[len(list) - 1]
     return search_page(sent_item=last_serch)
