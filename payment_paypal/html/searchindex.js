@@ -1,0 +1,1 @@
+Search.setIndex({envversion:47,filenames:["index","modules"],objects:{},objnames:{},objtypes:{},terms:{content:0,index:0,modul:0,page:0,search:0},titles:["Welcome to Smart Online Medicine Store&#8217;s documentation!","templates"],titleterms:{document:0,indic:0,medicin:0,onlin:0,smart:0,store:0,tabl:0,templat:[0,1],welcom:0}})
