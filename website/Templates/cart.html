@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block css%}
+    <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'back.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <link href="{{ url_for('static', filename = 'font-awesome-4.7.0/css/font-awesome.min.css') }} " rel="stylesheet">
+{%endblock css%}
+
+<body>
+    <div class="container">
+        <div class="top_head">
+            <div class="container">
+                <div class="inner_top">
+
+                    <ul class="ul_two">
+                        <li>
+                            <a href="/cart" class="btn btn-primary">CART {{ no_of_items }}</a>
+                        </li>
+                        <li>
+                            {% if not logged_in %}
+                            <a href="/login_form">
+                                <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                            {% else %}
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" id="drop" data-toggle="dropdown">Hi,{{ name }}</button>
+                                <div class="dropdown-menu" area-labelledby="drop">
+
+                                    <hr>
+                                    <a class="dropdown-item" href="/logout" class="btn btn-danger">
+                                        <span style="color:black">Sign Out
+                                            <span>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="container">
+			<div class="row text-center">
+				<h1>Shopping Cart</h1></br>
+
+					<table class="table table-bordered">
+						<thead>
+						<tr>
+							<td>Product name</td>
+							<td>Product price</td>
+							<td>Product Image</td>
+							<td>Product status</td>
+							<td>Remove from cart</td>
+						</tr>
+						</thead>
+						<tbody>
+						{% for row in products %}
+							<tr>
+								<td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                                <td>
+                                        <img src={{url_for('static', filename='uploads/'+ row[3]) }}  height="50px" id="productImage"/>
+                                </td>
+								<td>In Stock</td>
+
+							<td><a href="/remove_from_cart?product_id={{row[0]}}" class="btn btn-danger">Remove</a> </td>
+							</tr>
+
+						</tbody>
+					</table>
+			<div>
+				<h3>Total Price =  ${{total_price}}</h3> </br>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Place Order</button>
+
+					{% endfor %}
+			</div>
+			</div>
+		</div>
+
+
+    </div>
+</body>
+
+{%endblock content%}
