@@ -1,8 +1,8 @@
 import unittest
-from main import app
+from app import app
 
 
-class MyTestCase(unittest.TestCase):
+class TestSearch(unittest.TestCase):
 
     # Ensure that Flask was set up correctly
     def test_index(self):
@@ -37,6 +37,15 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(b'Stock', response.data)
         self.assertNotIn(b'Item not in database', response.data)
         self.assertNotIn(b'Search...', response.data)
+
+    # Ensure that page search bar will not work, and stay in the same page if not input is given
+    def test_empty_search_bar_reaction(self):
+        tester = app.test_client(self)
+        response = tester.post('/search.html', data=dict(search_input=''), follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Search...', response.data)
+        self.assertNotIn(b'Item not in database', response.data)
+        self.assertNotIn(b'Stock', response.data)
 
 
 if __name__ == '__main__':
