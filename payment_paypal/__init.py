@@ -1,34 +1,26 @@
+from flask import Flask
 from werkzeug.datastructures import ImmutableOrderedMultiDict
 import requests
+from flask import render_template
+
+app = Flask(__name__)
 
 @app.route('/purchase/')
 def purchase():
 	try:
 		return render_template("subscribe.html")
-	except Exception, e:
+	except Exception as e:
 		return(str(e))
 
 @app.route('/success/')
 def success():
 	try:
 		return render_template("success.html")
-	except Exception, e:
+	except Exception as e:
 		return(str(e))
 
-    @app.route('/ipn/',methods=['POST'])
-def ipn():
-	try:
-		arg = ''
-		request.parameter_storage_class = ImmutableOrderedMultiDict
-		values = request.form
-		for x, y in values.iteritems():
-			arg += "&{x}={y}".format(x=x,y=y)
 
-		validate_url = 'https://www.sandbox.paypal.com' \
-					   '/cgi-bin/webscr?cmd=_notify-validate{arg}' \
-					   .format(arg=arg)
-		r = requests.get(validate_url)
-         @app.route('/ipn/',methods=['POST'])
+@app.route('/ipn/',methods=['POST'])
 def ipn():
 	try:
 		arg = ''
@@ -71,8 +63,8 @@ def ipn():
 			gc.collect()
 
 		else:
-			 with open('/tmp/ipnout.txt','a') as f:
-				data = 'FAILURE\n'+str(values)+'\n'
+			with open('/tmp/ipnout.txt','a') as f:
+				data = 'FAILURE\n' + str(values) + '\n'
 				f.write(data)
 				
 		return r.text
