@@ -9,13 +9,16 @@ views = Blueprint('views', __name__)
 # autocomplete/ show suggestion in the search box while typing
 @views.route('/_autocomplete_search', methods=['GET'])
 def autocomplete_search():
-
     """
-        This method is used to predict the Text consists in a Image.
-        :param img_path: It's a path of the image from where have to predict.
-        :type img_path: String.
-        :return: String. Predicted String
-        :rtype: String.
+        This method is used to suggest users the product name depending on the input.
+
+        :param Null: None.
+
+        :type Null: None.
+
+        :return: products which start with the characters typed by user.
+
+        :rtype: json.
     """
 
     items = []
@@ -31,14 +34,21 @@ def autocomplete_search():
 # search page
 @views.route('/search.html', methods=['GET', 'POST'])
 def search_page(sent_item=None):
+    """
+        This method allows the user to search, and according to the input, the
+        the page would show if deatils of the product if it exists in database,
+        otherwise will show item not found.
 
+        :param sent_item: Its a text string.
+
+
+        :type sent_item: String.
+
+        :return: search option view.
+
+        :rtype: html.
     """
-        This method is used to dump  the last predicted Text to a pickle file.
-        :param text: Its a text string.
-        :type text: String.
-        :return: It will return nothing.
-        :rtype: None.
-    """
+
     form = SearchForm(request.form)
 
     if sent_item:
@@ -62,12 +72,15 @@ def search_page(sent_item=None):
 @views.route('/camera.html', methods=['GET', 'POST'])
 def camera_page():
     """
-        This method is used to open the pickle file named last_search.pkl. Load file to a list and return it
-        for further searching processing.
+        This method is used to capture image, and after that send it to get predicted.
+
         :param Null: None.
+
         :type Null: None.
-        :return: It will return  a list file.
-        :rtype: list.
+
+        :return: image capture view.
+
+        :rtype: html.
     """
     if request.method == "POST":
 
@@ -85,14 +98,15 @@ def camera_page():
 def image_from_camera():
 
     """
-        This method is used to get the image from httpResponse and feedback the HttpResponse with predicted text.
-        This method saved the image in a folder and send the location to predict function.After getting text return from
-        predict function, it wll show the test buy returning at html page.
-        :param file: it's a HttpResponse from user..
-        :type request: HttpResponse.
-        :return: this method returns a html page.It returns a page where it has three options, Upload Image
-          ,Prediction  and Search option.
-        :rtype: HttpResponse.
+        This method is used to save the image that is taken in the camera page
+
+        :param NULL: None
+
+        :type NULL: None
+
+        :return: returns response as saved
+
+        :rtype: Response.
     """
     image_file = request.files['image']  # get the image
     image_file.save('%s/%s' % ('website/static/img', 'temp.jpg'))

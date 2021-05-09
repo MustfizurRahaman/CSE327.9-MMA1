@@ -6,6 +6,19 @@ db = SQLAlchemy()
 
 
 def create_app():
+    """
+        Returns the flask app after configuring it with secret key and database
+        registers views via blueprint
+        handles any missing or non existing route by displaying a custom error page
+
+        :param NULL: None
+
+        :type NULL: None
+
+        :return: None
+
+        :rtype: None
+    """
 
     app = Flask(__name__)
 

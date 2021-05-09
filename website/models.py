@@ -2,6 +2,20 @@ from . import db
 
 
 class Medicine(db.Model):
+    """
+        This class is extended from the attribute db so it has all the functionality
+        of the SQLAlchemy.
+        This class used to create objects for database entry
+        And to retrieve data from database
+
+        :param NULL: None
+
+        :type NULL: None
+
+        :return: None
+
+        :rtype: None.
+    """
     product_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False, unique=True)
     company_name = db.Column(db.Text, nullable=False)
