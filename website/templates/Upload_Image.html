@@ -1,0 +1,43 @@
+{% extends 'Base.html' %}
+
+{%block content%}
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/Upload_Image.css"  rel="stylesheet">
+  </head>
+
+  <body class="text-center"; style="background-color: #bcd0c7">
+    <form class="form-Upload_Image" method = post enctype=multipart/form-data>
+      <h1 class="h3 mb-3 font-weight-normal">Please Upload Image </h1>
+      <input type="file" id="image" name= "image" class="form-control"  required autofocus>
+        <br>
+      <button class="btn btn-lg btn-primary btn-dark" type="submit" name ="submit_button" value ="Do something">Predict</button>
+        <button type="button" class="btn btn-lg btn-primary btn-dark" type ="submit">Remove</button>
+        <br>
+        <br>
+        {%if image_loc%}
+        <img class="mb-4" src="static/{{image_loc}}" alt="" width="256" height="256">
+            <h1 class="h3 mb-3 font-weight-normal">Prediction: {{ prediction}} </h1>
+        {% endif %}
+    <br>
+
+    </form>
+  <a class="btn btn-lg btn-primary btn-dark" id ="search" href="{{ url_for('views.sarch_page') }}">Search</a>
+
+  </body>
+
+
+{%endblock content%}
