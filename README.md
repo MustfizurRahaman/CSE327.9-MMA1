@@ -1,4 +1,4 @@
-# CSE327.9-MMA1-
+# LifePharma
 
 ## Search and Cappture Imaage
 * Search Functionality
